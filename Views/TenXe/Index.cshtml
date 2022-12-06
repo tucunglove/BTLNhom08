@@ -1,0 +1,38 @@
+@model IEnumerable<BTL_nhom08.Models.TenXe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Trang chủ Tên xe</h1>
+
+<p>
+    <a asp-action="Create">Thêm mới</a>
+</p>
+<p>
+    <a asp-action="Upload">Upload file</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenXe_BienSo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenXe_BienSo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.XeID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.XeID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.XeID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
